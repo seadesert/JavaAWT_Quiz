@@ -29,7 +29,7 @@ public class QuizType_single extends Frame
       static boolean save_question = true;
 
 
-    QuizType_single(QuizQuestion q)
+    QuizType_single(Quiz q1, QuizQuestion q2)
     {
 
         //Display the form always on the center of the screen
@@ -43,8 +43,8 @@ public class QuizType_single extends Frame
 
 
         //footer, displays the score and the Time left for the quiz
-        Label score_label = new Label("Score: " + q.score + " Marks");
-        Label time_left = new Label("Time left: " + q.time_left);
+        Label score_label = new Label("Score: " + q1.score + " Marks");
+        Label time_left = new Label("Time left: " + q1.time_left);
         Button finish = new Button ("Submit Quiz");
 
 
@@ -61,11 +61,12 @@ public class QuizType_single extends Frame
             Question Section, print the question from the String "question_string" from the class QuizQuestion
             Also Prints the type of question and the current Question Count
         */
-        Label Question_count = new Label("Question " + q.question_count + " - Single Word");
+        Label Question_count = new Label("Question " + q2.question_count + " - Single Word");
         Question_count.setBounds(180, 50, 200, 20);
         add(Question_count);
-
-        TextArea Question = new TextArea(q.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
+        Font font_question = new Font("sans-serif", Font.PLAIN, 14);
+        TextArea Question = new TextArea(q2.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
+        Question.setFont(font_question);
         Question.setBackground(Color.WHITE);
         Question.setForeground(Color.RED);
         Question.setBounds(30, 70, 440, 100);
@@ -135,9 +136,9 @@ public class QuizType_single extends Frame
                   if(save_question == true)
                   {
                       //saves the answer in the QuizQuesiton
-                      q.answer_string = string_answer.getText();
+                      q2.answer_string = string_answer.getText();
                       //previous question, decrease count
-                      q.current_count = q.current_count - 1;
+                      q1.current_count = q1.current_count - 1;
                   }
               }
 
@@ -164,9 +165,9 @@ public class QuizType_single extends Frame
                   {
                       
                       //saves the answer in the QuizQuesiton
-                      q.answer_string = string_answer.getText();
+                      q2.answer_string = string_answer.getText();
                       //next question, increase count
-                      q.current_count = q.current_count + 1;
+                      q1.current_count = q1.current_count + 1;
                   }
               }
 
@@ -192,12 +193,12 @@ public class QuizType_single extends Frame
         if its the last question show "Submit Quiz" Button
         */
 
-        if(q.question_count == 1)
+        if(q2.question_count == 1)
         {
             back.enable(false);
         }
 
-        if(q.question_count == q.last_count)
+        if(q2.question_count == q1.last_count)
         {
             next.enable(false);
             add(finish);
@@ -211,8 +212,9 @@ public class QuizType_single extends Frame
     }
     public static void main(String args[])
     {
-        QuizQuestion q = new QuizQuestion();
-        QuizType_single form = new QuizType_single(q);
+        QuizQuestion q2 = new QuizQuestion();
+        Quiz q1 = new Quiz();
+        QuizType_single form = new QuizType_single(q1, q2);
     }
 
 
