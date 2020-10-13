@@ -98,8 +98,8 @@ public class QuizType_singleword extends Frame
         Button next = new Button(">");
         Button back = new Button("<");
 
-        back.setBounds(20, 175, 60, 50);
-        next.setBounds(420, 175, 60, 50);
+        back.setBounds(20, 200, 60, 50);
+        next.setBounds(430, 200, 60, 50);
 
         //Reset Buttons if disabled, usefull when recheck the question
         back.enable(true);
