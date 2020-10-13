@@ -80,6 +80,11 @@ public class QuizType_singleword extends Frame
 
         Font font_answer = new Font("sans-serif", Font.PLAIN, 16);
         string_answer.setFont(font_answer);
+        
+        if(q2.answer_string != null)
+        {
+            string_answer.setText(q2.answer_string);
+        }
 
 
         //Listen to changes in the text, if the answer is modified sets save_question to true
