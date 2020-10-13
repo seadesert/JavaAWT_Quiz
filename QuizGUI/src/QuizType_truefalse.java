@@ -1,35 +1,27 @@
 import java.awt.*;
-import static java.awt.Font.*;
+import java.awt.Font.*;
 import java.awt.event.*;
 
 
-
-public class QuizType_single extends Frame
+//true or false answer Form
+public class QuizType_truefalse extends Frame
 {
 
     /*
 
-        The Constructor for the Form accepts the current question no or "count"
-        The current score "score" and the time left in the quiz "time" is seconds
-
-        String "question_string" holds the question
-        The object of the form is created for each question
-
+        The Constructor for the Form accepts the obkect of Quiz and Quiz_question, each resposible for holding global and local question specific variables respectvely
         call the constuctor for the form to generate the question of a particular type as follows:
-        QuizType_single = new QuizType_single(object QuizQuestion)
-        all of these parameters used are to be provided by the class QuizQuestion 
-    
-        while creating the question, pass the object of the question
-    
-        Or refer to the example given in the main class, which is used for testing
+        QuizType_single = new QuizType_single(object Quiz, object QuizQuestion)
+        Or refer to the example given in the main class, on how to intantiate this form
 
     */
 
-    //Save_question is boolean that states whether to save the answer whenever "next" or "previous", by defualt its true, after saving it changes to "false"
+    //Save_question is boolean that states whether to save the answer, after saving the answer it changes to "false"
       static boolean save_question = true;
+    //Holds currently selected value
+      static Boolean selected_answer = null; 
 
-
-    QuizType_single(Quiz q1, QuizQuestion q2)
+    QuizType_truefalse(Quiz q1, QuizQuestion q2)
     {
 
         //Display the form always on the center of the screen
@@ -67,6 +59,7 @@ public class QuizType_single extends Frame
         Font font_question = new Font("sans-serif", Font.PLAIN, 14);
         TextArea Question = new TextArea(q2.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
         Question.setFont(font_question);
+        
         Question.setBackground(Color.WHITE);
         Question.setForeground(Color.RED);
         Question.setBounds(30, 70, 440, 100);
@@ -75,7 +68,7 @@ public class QuizType_single extends Frame
         add(Question);
 
 
-        //On Click Close Operation for testing, decision "to be removed later and change the form layout to hide close button while in quiz" or "display a warning message and allow to exit the quiz anytime"
+            //On Click Close Operation TODO: display a warning message and allow to exit the quiz
             addWindowListener(new WindowAdapter(){
                 public void windowClosing(WindowEvent e) {
                     dispose();
@@ -86,29 +79,51 @@ public class QuizType_single extends Frame
 
 
 
-        //Options, this section changes depending on the type of the question
-
-        TextField string_answer = new TextField("");
-        string_answer.setBounds(150, 230, 200, 30);
-
-        //Increased Font Size for the answer
-        Font font_answer = new Font("sans-serif", Font.PLAIN, 16);
-        string_answer.setFont(font_answer);
-
-
-        //Listen to changes in the text, if there is a change in the text set the bool save_question state, if no changes is made to the option it skips saving the question
-            TextListener tl = new TextListener() {
-            @Override
-            public void textValueChanged(TextEvent te)
+        //Options
+        CheckboxGroup cbg = new CheckboxGroup();
+            Checkbox checkBox1 = new Checkbox(" True", cbg, false);
+            checkBox1.setBounds(200,200, 50,50);   
+            
+            Checkbox checkBox2 = new Checkbox(" False", cbg, false);    
+            checkBox2.setBounds(200,250, 50,50);  
+            
+            add(checkBox1);
+            add(checkBox2);
+            //Load previous answered value
+            if(q2.answer_tf != null)
             {
-                save_question = true;
+                if(q2.answer_tf == true)
+                {
+                    checkBox1.setState(true);
+                    checkBox2.setState(false);
+                }
+                else
+                {
+                    checkBox1.setState(false);
+                    checkBox2.setState(true);
+                }
             }
-        };
-        string_answer.addTextListener(tl);
-        add(string_answer);
-
+            
+            
+            
+        //Listen to changes in the answer, if the answer is modified sets save_question to true
+            checkBox1.addItemListener(new ItemListener() {  
+            public void itemStateChanged(ItemEvent e) 
+            {               
+                save_question = true;
+                selected_answer = true; 
+            }  
+         });  
+            
+            checkBox2.addItemListener(new ItemListener() {  
+            public void itemStateChanged(ItemEvent e) 
+            {               
+                save_question = true;
+                selected_answer = false; 
+            }  
+         });  
         
-        //Back and Next Buttons
+        //Back and Next Buttons 
         Button next = new Button(">");
         Button back = new Button("<");
 
@@ -119,7 +134,7 @@ public class QuizType_single extends Frame
         back.enable(true);
         next.enable(true);
 
-
+            //Back Button Function TODO: Goto pevious Question Form
               MouseListener ml = new MouseListener() {
               @Override
               public void mouseClicked(MouseEvent me) {}
@@ -133,19 +148,21 @@ public class QuizType_single extends Frame
               @Override
               public void mouseEntered(MouseEvent me)
               {
-                  if(save_question == true)
+                  if(save_question == true && selected_answer != null)
                   {
                       //saves the answer in the QuizQuesiton
-                      q2.answer_string = string_answer.getText();
+                      q2.answer_tf = selected_answer;
+                      
+                  }
+                  
                       //previous question, decrease count
                       q1.current_count = q1.current_count - 1;
-                  }
               }
-
+            
+            //Next Button Functions TODO: goto next Question Form
             @Override
             public void mouseExited(MouseEvent me) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
+                }
               };
               
               MouseListener m2 = new MouseListener() {
@@ -161,32 +178,28 @@ public class QuizType_single extends Frame
               @Override
               public void mouseEntered(MouseEvent me)
               {
-                  if(save_question == true)
-                  {
-                      
-                      //saves the answer in the QuizQuesiton
-                      q2.answer_string = string_answer.getText();
-                      //next question, increase count
+                  
+                    if(save_question == true && selected_answer != null)
+                    {
+                        //saves the answer in the QuizQuesiton
+                        q2.answer_tf = selected_answer;
+
+                    }
+                  
+                      //increase question count
                       q1.current_count = q1.current_count + 1;
-                  }
               }
 
             @Override
             public void mouseExited(MouseEvent me) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
               };
               
-              
-              
-          
-
 
         back.addMouseListener(ml);
         add(back);
         add(next);
-        
-                
+             
         
         /*
         Disable Back or Next Question Button if its the first or the last question respectively
@@ -204,17 +217,20 @@ public class QuizType_single extends Frame
             add(finish);
         }
 
-        //Defualt size for the quiz question is set to 500 * 400 px;
+        //Defualt size for the quiz question is set to 500 x 400 px;
         setSize(500, 400);
         setLayout(null);
         setVisible(true);
+        setResizable(false);
 
     }
+    
+    //for testing purpose TODO: Remove main function
     public static void main(String args[])
     {
         QuizQuestion q2 = new QuizQuestion();
         Quiz q1 = new Quiz();
-        QuizType_single form = new QuizType_single(q1, q2);
+        QuizType_truefalse form = new QuizType_truefalse(q1, q2);
     }
 
 

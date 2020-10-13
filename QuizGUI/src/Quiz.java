@@ -1,14 +1,31 @@
-//class Quiz and class QuixQuestion are to be added to seperate clases as Quiz holds global variables and QuizQuestion hold local variables for the specific question
+
+
+
+//Class Quiz holds global variables related to Quiz TODO: Remove Static keywords
 
 public class Quiz
 {
-     //for "class Quiz", holds the values that like global variaable and do not change for the a quix 
+    //for "class Quiz", holds the values that like global variaable and do not change for the a quix  
+    public static String Quiz_Name = "Capitals: Quiz";
+    
+    //last_count holds the total number of question in the quiz
     public static int last_count = 5;
+    
+    //holds total time allocated to the quiz in seconds
+    public static int total_time = 100;
+    
     //Time left is calcualted in each question form as time_left - time_taken( refer below )
     public static int time_left = 10;
+    
+    //Holds the current score held by the user
     public static int score = 13;
+    
+    //Holds total score possible in the quiz
+    public static int score_max = 40;
+    
     //state_review is boolean that stores the state whether the user is review the question (after the result), while reviewing the correct answer is shown, default its false, after result is shown it is set to true
     public boolean state_review = false;
+    
     //store the current position (question) in the quiz
     public int current_count;
 }
