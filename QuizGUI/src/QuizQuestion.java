@@ -5,6 +5,9 @@
 
 public class QuizQuestion 
 {   
+    //Holds question_type out of possible values = {single-word, true-false, number, single-option, multiple-option}
+    public static String question_type = "single-word";
+    
     //Holds question no
     public static int question_count = 2; 
     
@@ -17,6 +20,9 @@ public class QuizQuestion
   
     //Holds the values inputted by the user (Note all values are intialized to null or -1
     public String answer_string = null;
+    
+    //Holds the number value inputted by the user
+    public float answer_number = -1;
     
     //Holds the value selected by the user for single answer mcq
     public int answer_option = -1;
