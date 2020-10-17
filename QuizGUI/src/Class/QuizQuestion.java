@@ -1,3 +1,5 @@
+package Class;
+
 
 
 //This is test class simulating the quiz class, TODO: remove keyword static

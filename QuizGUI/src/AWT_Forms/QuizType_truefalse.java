@@ -1,3 +1,7 @@
+package AWT_Forms;
+
+import Class.QuizQuestion;
+import Class.Quiz;
 import java.awt.*;
 import java.awt.Font.*;
 import java.awt.event.*;
