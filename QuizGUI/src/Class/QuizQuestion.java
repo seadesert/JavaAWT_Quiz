@@ -38,7 +38,6 @@ public class QuizQuestion
     public static int answer_option3 = -1;
     public static int answer_option4 = -1; 
     
-    
     // Holds the actual correct answer for the question     
     public static String correct_answer_string = "Canberra";
     

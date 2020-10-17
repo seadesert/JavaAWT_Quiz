@@ -7,8 +7,8 @@ import java.awt.Font.*;
 import java.awt.event.*;
 
 
-//single_mcq
-public class QuizType_singleoption extends Frame
+//multiple_mcq
+public class QuizType_multipleoption extends Frame
 {
 
     /*
@@ -24,8 +24,13 @@ public class QuizType_singleoption extends Frame
       static boolean save_question = true;
     //Holds currently selected value
       static Boolean selected_answer = null; 
+      
+      static Boolean option1 = null;
+      static Boolean option2 = null;
+      static Boolean option3 = null;
+      static Boolean option4 = null;
 
-    QuizType_singleoption(Quiz q1, QuizQuestion q2)
+    QuizType_multipleoption(Quiz q1, QuizQuestion q2)
     {
 
         //Display the form always on the center of the screen
@@ -57,7 +62,7 @@ public class QuizType_singleoption extends Frame
             Question Section, print the question from the String "question_string" from the class QuizQuestion
             Also Prints the type of question and the current Question Count
         */
-        Label Question_count = new Label("Question " + q2.question_count + " - Single Option - MCQ");
+        Label Question_count = new Label("Question " + q2.question_count + " - Multiple Option - MCQ");
         Question_count.setBounds(160, 50, 200, 20);
         add(Question_count);
         Font font_question = new Font("sans-serif", Font.PLAIN, 14);
@@ -84,17 +89,17 @@ public class QuizType_singleoption extends Frame
 
 
         //Options
-        CheckboxGroup cbg = new CheckboxGroup();
-            Checkbox checkBox1 = new Checkbox(q2.options[0] , cbg, false);
+
+            Checkbox checkBox1 = new Checkbox(q2.options[0] , false);
             checkBox1.setBounds(125,180, 300,40);   
             
-            Checkbox checkBox2 = new Checkbox(q2.options[1], cbg, false);    
+            Checkbox checkBox2 = new Checkbox(q2.options[1], false);    
             checkBox2.setBounds(125,210, 300,40);  
             
-            Checkbox checkBox3 = new Checkbox(q2.options[2], cbg, false);
+            Checkbox checkBox3 = new Checkbox(q2.options[2], false);
             checkBox3.setBounds(125,240, 300,40);   
             
-            Checkbox checkBox4 = new Checkbox(q2.options[3], cbg, false);    
+            Checkbox checkBox4 = new Checkbox(q2.options[3], false);    
             checkBox4.setBounds(125,270, 300,40); 
             
             add(checkBox1);
@@ -108,32 +113,20 @@ public class QuizType_singleoption extends Frame
                 if(q2.answer_option1 == 1)
                 {
                     checkBox1.setState(true);
-                    checkBox2.setState(false);
-                    checkBox3.setState(false);
-                    checkBox4.setState(false);
                 }
                 
                 else if (q2.answer_option2 == 1)
                 {
-                    checkBox1.setState(false);
                     checkBox2.setState(true);
-                    checkBox3.setState(false);
-                    checkBox4.setState(false);
                 }
                 
                 else if (q2.answer_option3 == 1)
                 {
-                    checkBox1.setState(false);
-                    checkBox2.setState(false);
                     checkBox3.setState(true);
-                    checkBox4.setState(false);
                 }
                 
                 else if (q2.answer_option4 == 1)
                 {
-                    checkBox1.setState(false);
-                    checkBox2.setState(false);
-                    checkBox3.setState(false);
                     checkBox4.setState(true);
                 }
             }
@@ -145,40 +138,68 @@ public class QuizType_singleoption extends Frame
         //Listen to changes in the answer, if the answer is modified sets save_question to true
             checkBox1.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
-            {               
-                q2.answer_option1 = 1; 
-                q2.answer_option2 = 0;
-                q2.answer_option3 = 0;
-                q2.answer_option4 = 0;
+            {     
+                if(option1 == null || option1 == false)
+                {
+                    option1 = true;
+                    q2.answer_option1 = 1;
+                }
+                
+                if(option1 == true)
+                {
+                    option1 = false;
+                    q2.answer_option1 = 0;
+                }
             }  
          });  
             
             checkBox2.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                q2.answer_option1 = 0; 
-                q2.answer_option2 = 1;
-                q2.answer_option3 = 0;
-                q2.answer_option4 = 0;
+                if(option2 == null || option2 == false)
+                {
+                    option2 = true;
+                    q2.answer_option2 = 1;
+                }
+                
+                if(option2 == true)
+                {
+                    option2 = false;
+                    q2.answer_option2 = 0;
+                }
             }  
          });
             
              checkBox3.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                q2.answer_option1 = 0; 
-                q2.answer_option2 = 0;
-                q2.answer_option3 = 1;
-                q2.answer_option4 = 0;
+                if(option3 == null || option3 == false)
+                {
+                    option3 = true;
+                    q2.answer_option3 = 1;
+                }
+                
+                if(option3 == true)
+                {
+                    option3 = false;
+                    q2.answer_option3 = 0;
+                }
             }  
          });
             checkBox4.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                q2.answer_option1 = 0; 
-                q2.answer_option2 = 0;
-                q2.answer_option3 = 0;
-                q2.answer_option4 = 1;
+                if(option4 == null || option4 == false)
+                {
+                    option4 = true;
+                    q2.answer_option4 = 1;
+                }
+                
+                if(option4 == true)
+                {
+                    option4 = false;
+                    q2.answer_option4 = 0;
+                }
             }  
          });  
         
@@ -207,7 +228,7 @@ public class QuizType_singleoption extends Frame
               @Override
               public void mouseEntered(MouseEvent me)
               {
-                  
+
                       //previous question, decrease count
                       q1.current_count = q1.current_count - 1;
               }
@@ -231,8 +252,7 @@ public class QuizType_singleoption extends Frame
               @Override
               public void mouseEntered(MouseEvent me)
               {
-                  
-                  
+
                       //increase question count
                       q1.current_count = q1.current_count + 1;
               }
@@ -277,7 +297,7 @@ public class QuizType_singleoption extends Frame
     {
         QuizQuestion q2 = new QuizQuestion();
         Quiz q1 = new Quiz();
-        QuizType_singleoption form = new QuizType_singleoption(q1, q2);
+        QuizType_multipleoption form = new QuizType_multipleoption(q1, q2);
     }
 
 
