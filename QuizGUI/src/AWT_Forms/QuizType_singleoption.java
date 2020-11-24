@@ -226,6 +226,7 @@ public class QuizType_singleoption extends Frame
                       //increase question count
                       q1.current_count = q1.current_count + 1;
                       dispose();
+                      
               }
 
             @Override
@@ -235,6 +236,8 @@ public class QuizType_singleoption extends Frame
               
 
         back.addMouseListener(ml);
+        next.addMouseListener(m2);
+        finish.addMouseListener(m2);
         add(back);
         add(next);
              
@@ -262,14 +265,14 @@ public class QuizType_singleoption extends Frame
         setResizable(false);
 
     }
-    
-    //for testing purpose TODO: Remove main function
-    public static void main(String args[])
-    {
-        QuizQuestion q2 = new QuizQuestion();
-        Quiz q1 = new Quiz();
-        QuizType_singleoption form = new QuizType_singleoption(q1, q2);
-    }
+//    
+//    //for testing purpose TODO: Remove main function
+//    public static void main(String args[])
+//    {
+//        QuizQuestion q2 = new QuizQuestion();
+//        Quiz q1 = new Quiz();
+//        QuizType_singleoption form = new QuizType_singleoption(q1, q2);
+//    }
 
 
 

@@ -215,6 +215,7 @@ public class QuizType_multipleoption extends Frame
               public void mouseEntered(MouseEvent me)
               {
 
+                  
                       //previous question, decrease count
                       q1.current_count = q1.current_count - 1;
                       dispose();
@@ -240,6 +241,8 @@ public class QuizType_multipleoption extends Frame
               public void mouseEntered(MouseEvent me)
               {
 
+                  
+                  
                       //increase question count
                       q1.current_count = q1.current_count + 1;
                       dispose();
@@ -252,6 +255,8 @@ public class QuizType_multipleoption extends Frame
               
 
         back.addMouseListener(ml);
+        next.addMouseListener(m2);
+        finish.addMouseListener(m2);
         add(back);
         add(next);
              
@@ -280,14 +285,14 @@ public class QuizType_multipleoption extends Frame
 
     }
     
-    //for testing purpose TODO: Remove main function
-    public static void main(String args[])
-    {
-        QuizQuestion q2 = new QuizQuestion();
-        Quiz q1 = new Quiz();
-        QuizType_multipleoption form = new QuizType_multipleoption(q1, q2);
-    }
-
+//    //for testing purpose TODO: Remove main function
+//    public static void main(String args[])
+//    {
+//        QuizQuestion q2 = new QuizQuestion();
+//        Quiz q1 = new Quiz();
+//        QuizType_multipleoption form = new QuizType_multipleoption(q1, q2);
+//    }
+//
 
 
 }

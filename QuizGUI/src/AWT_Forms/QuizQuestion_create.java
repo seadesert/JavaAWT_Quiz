@@ -286,6 +286,7 @@ public class QuizQuestion_create extends Frame
             @Override
             public void mouseClicked(MouseEvent me) 
             {
+                
                 q2.question_count = q1.current_count;
                 q2.question_marks = Integer.parseInt(score.getText());
                 q2.question_string = question_description.getText();
@@ -359,41 +360,13 @@ public class QuizQuestion_create extends Frame
             @Override
             public void mouseExited(MouseEvent me) 
             {
-           
-                
+  
             }
             
         };
         
-        next.addMouseListener(m2);
-          
-        MouseListener m3 = new MouseListener()
-        {
-            @Override
-            public void mouseClicked(MouseEvent me) 
-            {
-           
-            }
-
-            @Override
-            public void mousePressed(MouseEvent me) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent me) {
-           }
-
-            @Override
-            public void mouseEntered(MouseEvent me) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent me) {
-           }
-            
-        };
-        
-        start.addMouseListener(m3);
+        next.addMouseListener(m2);  
+        start.addMouseListener(m2);
         
         //Defualt size for the quiz question is set to 500 x 400 px;
         setSize(800, 600);
@@ -402,14 +375,13 @@ public class QuizQuestion_create extends Frame
         setResizable(false);
 
     }
-    //for testing purpose TODO: Remove main function
-    public static void main(String args[])
-    {
-        QuizQuestion q2 = new QuizQuestion();
-        Quiz q1 = new Quiz();
-        QuizQuestion_create form = new QuizQuestion_create(q1, q2);
-    }
-
-
+//    //for testing purpose TODO: Remove main function
+//    public static void main(String args[])
+//    {
+//        QuizQuestion q2 = new QuizQuestion();
+//        Quiz q1 = new Quiz();
+//        QuizQuestion_create form = new QuizQuestion_create(q1, q2);
+//    }
+//
 
 }

@@ -171,6 +171,8 @@ public class QuizType_singleword extends Frame
 
 
         back.addMouseListener(ml);
+        next.addMouseListener(m2);
+        finish.addMouseListener(m2);
         add(back);
         add(next);
         
@@ -200,13 +202,13 @@ public class QuizType_singleword extends Frame
 
     }
     
-    //for testing purpose TODO: Remove main function
-    public static void main(String args[])
-    {
-        QuizQuestion q2 = new QuizQuestion();
-        Quiz q1 = new Quiz();
-        QuizType_singleword form = new QuizType_singleword(q1, q2);
-    }
+//    //for testing purpose TODO: Remove main function
+//    public static void main(String args[])
+//    {
+//        QuizQuestion q2 = new QuizQuestion();
+//        Quiz q1 = new Quiz();
+//        QuizType_singleword form = new QuizType_singleword(q1, q2);
+//    }
 
 
 

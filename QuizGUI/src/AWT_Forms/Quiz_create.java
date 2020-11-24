@@ -115,13 +115,13 @@ public class Quiz_create extends Frame
 
     }
     
-    //for testing purpose TODO: Remove main function
-    public static void main(String args[])
-    {
-        QuizQuestion q2 = new QuizQuestion();
-        Quiz q1 = new Quiz();
-        Quiz_create form = new Quiz_create(q1, q2);
-    }
+//    //for testing purpose TODO: Remove main function
+//    public static void main(String args[])
+//    {
+//        QuizQuestion q2 = new QuizQuestion();
+//        Quiz q1 = new Quiz();
+//        Quiz_create form = new Quiz_create(q1, q2);
+//    }
 
 
 

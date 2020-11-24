@@ -8,17 +8,17 @@ package Class;
 public class QuizQuestion 
 {   
     //Holds question_type out of possible values = {single-word, true-false, number, single-option, multiple-option}
-    public String question_type = "single-word";
+    public String question_type = "";
     
     //Holds question no
-    public int question_count = 2; 
+    public int question_count = 0; 
     
     //Holds marks allocated for correct answer for the quiz
-    public int question_marks = 1;
+    public int question_marks = 0;
     
     //Holds question string and options
-    public String question_string = "What is the capital of australia?";
-    public String options[] = {"Sydney", "Canberra", "Perth", "Brisbane"};
+    public String question_string = "";
+    public String options[] = {"", "", "", ""};
   
     //Holds the values inputted by the user (Note all values are intialized to null or -1
     public String answer_string = null;
@@ -39,14 +39,14 @@ public class QuizQuestion
     public int answer_option4 = -1; 
     
     // Holds the actual correct answer for the question     
-    public String correct_answer_string = "Canberra";
+    public String correct_answer_string = "";
     public int correct_answer_number = 0;
     
     //In case of single option
-    public int correct_answer_option = 2;
+    public int correct_answer_option = -1;
     
     //In case of true or false question
-    public boolean correct_answer = true;
+    public Boolean correct_answer = null;
     
     //In case of multiple correct option
     public int correct_answer_option1 = -1;
