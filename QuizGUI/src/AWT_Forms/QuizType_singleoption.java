@@ -72,17 +72,6 @@ public class QuizType_singleoption extends Frame
         add(Question);
 
 
-            //On Click Close Operation TODO: display a warning message and allow to exit the quiz
-            addWindowListener(new WindowAdapter(){
-                public void windowClosing(WindowEvent e) {
-                    dispose();
-                }
-            });
-
-
-
-
-
         //Options
         CheckboxGroup cbg = new CheckboxGroup();
             Checkbox checkBox1 = new Checkbox(q2.options[0] , cbg, false);
@@ -210,6 +199,7 @@ public class QuizType_singleoption extends Frame
                   
                       //previous question, decrease count
                       q1.current_count = q1.current_count - 1;
+                      dispose();
               }
             
             //Next Button Functions TODO: goto next Question Form
@@ -235,6 +225,7 @@ public class QuizType_singleoption extends Frame
                   
                       //increase question count
                       q1.current_count = q1.current_count + 1;
+                      dispose();
               }
 
             @Override

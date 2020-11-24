@@ -40,6 +40,7 @@ public class QuizQuestion
     
     // Holds the actual correct answer for the question     
     public String correct_answer_string = "Canberra";
+    public int correct_answer_number = 0;
     
     //In case of single option
     public int correct_answer_option = 2;

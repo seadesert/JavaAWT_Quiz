@@ -57,7 +57,7 @@ public class QuizType_truefalse extends Frame
             Question Section, print the question from the String "question_string" from the class QuizQuestion
             Also Prints the type of question and the current Question Count
         */
-        Label Question_count = new Label("Question " + q2.question_count + " - Single Word");
+        Label Question_count = new Label("Question " + q2.question_count + " - True or False");
         Question_count.setBounds(180, 50, 200, 20);
         add(Question_count);
         Font font_question = new Font("sans-serif", Font.PLAIN, 14);
@@ -70,16 +70,6 @@ public class QuizType_truefalse extends Frame
         Question.setEditable(false);
 
         add(Question);
-
-
-            //On Click Close Operation TODO: display a warning message and allow to exit the quiz
-            addWindowListener(new WindowAdapter(){
-                public void windowClosing(WindowEvent e) {
-                    dispose();
-                }
-            });
-
-
 
 
 
@@ -161,6 +151,7 @@ public class QuizType_truefalse extends Frame
                   
                       //previous question, decrease count
                       q1.current_count = q1.current_count - 1;
+                      dispose();
               }
             
             //Next Button Functions TODO: goto next Question Form
@@ -192,6 +183,7 @@ public class QuizType_truefalse extends Frame
                   
                       //increase question count
                       q1.current_count = q1.current_count + 1;
+                      dispose();
               }
 
             @Override

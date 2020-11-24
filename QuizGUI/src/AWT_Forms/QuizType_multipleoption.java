@@ -77,17 +77,6 @@ public class QuizType_multipleoption extends Frame
         add(Question);
 
 
-            //On Click Close Operation TODO: display a warning message and allow to exit the quiz
-            addWindowListener(new WindowAdapter(){
-                public void windowClosing(WindowEvent e) {
-                    dispose();
-                }
-            });
-
-
-
-
-
         //Options
 
             Checkbox checkBox1 = new Checkbox(q2.options[0] , false);
@@ -130,10 +119,7 @@ public class QuizType_multipleoption extends Frame
                     checkBox4.setState(true);
                 }
             }
-
-
-            
-            
+          
             
         //Listen to changes in the answer, if the answer is modified sets save_question to true
             checkBox1.addItemListener(new ItemListener() {  
@@ -231,6 +217,7 @@ public class QuizType_multipleoption extends Frame
 
                       //previous question, decrease count
                       q1.current_count = q1.current_count - 1;
+                      dispose();
               }
             
             //Next Button Functions TODO: goto next Question Form
@@ -255,6 +242,7 @@ public class QuizType_multipleoption extends Frame
 
                       //increase question count
                       q1.current_count = q1.current_count + 1;
+                      dispose();
               }
 
             @Override

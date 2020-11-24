@@ -70,14 +70,6 @@ public class QuizType_number extends Frame
         add(Question);
 
 
-            //On Click Close Operation TODO: display a warning message and allow to exit the quiz
-            addWindowListener(new WindowAdapter(){
-                public void windowClosing(WindowEvent e) {
-                    dispose();
-                }
-            });
-
-
         //Options
         TextField string_answer = new TextField("");
         string_answer.setBounds(150, 230, 200, 30);
@@ -136,6 +128,7 @@ public class QuizType_number extends Frame
                   
                       //previous question, decrease count
                       q1.current_count = q1.current_count - 1;
+                      dispose();
               }
             
               
@@ -167,6 +160,7 @@ public class QuizType_number extends Frame
                   
                       //increase question count
                       q1.current_count = q1.current_count + 1;
+                      dispose();
               }
 
             @Override

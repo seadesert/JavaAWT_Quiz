@@ -29,5 +29,5 @@ public class Quiz
     public boolean state_review = false;
     
     //store the current position (question) in the quiz
-    public int current_count;
+    public static int current_count = 0;
 }
