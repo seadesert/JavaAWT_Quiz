@@ -97,24 +97,24 @@ public class QuizType_multipleoption extends Frame
             add(checkBox4);
 
             //Load previous answered value
-            if(q2.answer_option1 != -1 || q2.answer_option2 != -1 || q2.answer_option3 != -1 || q2.answer_option4 != -1)
+            if(q2.answer_options[0] != -1 || q2.answer_options[1] != -1 || q2.answer_options[2] != -1 || q2.answer_options[3] != -1)
             {
-                if(q2.answer_option1 == 1)
+                if(q2.answer_options[0] == 1)
                 {
                     checkBox1.setState(true);
                 }
                 
-                else if (q2.answer_option2 == 1)
+                else if (q2.answer_options[1] == 1)
                 {
                     checkBox2.setState(true);
                 }
                 
-                else if (q2.answer_option3 == 1)
+                else if (q2.answer_options[2] == 1)
                 {
                     checkBox3.setState(true);
                 }
                 
-                else if (q2.answer_option4 == 1)
+                else if (q2.answer_options[3] == 1)
                 {
                     checkBox4.setState(true);
                 }
@@ -128,13 +128,13 @@ public class QuizType_multipleoption extends Frame
                 if(option1 == null || option1 == false)
                 {
                     option1 = true;
-                    q2.answer_option1 = 1;
+                    q2.answer_options[0] = 1;
                 }
                 
                 if(option1 == true)
                 {
                     option1 = false;
-                    q2.answer_option1 = 0;
+                    q2.answer_option1[0] = 0;
                 }
             }  
          });  
@@ -145,13 +145,13 @@ public class QuizType_multipleoption extends Frame
                 if(option2 == null || option2 == false)
                 {
                     option2 = true;
-                    q2.answer_option2 = 1;
+                    q2.answer_options[1] = 1;
                 }
                 
                 if(option2 == true)
                 {
                     option2 = false;
-                    q2.answer_option2 = 0;
+                    q2.answer_options[1] = 0;
                 }
             }  
          });
@@ -162,13 +162,13 @@ public class QuizType_multipleoption extends Frame
                 if(option3 == null || option3 == false)
                 {
                     option3 = true;
-                    q2.answer_option3 = 1;
+                    q2.answer_options[2] = 1;
                 }
                 
                 if(option3 == true)
                 {
                     option3 = false;
-                    q2.answer_option3 = 0;
+                    q2.answer_options[2] = 0;
                 }
             }  
          });
@@ -178,13 +178,13 @@ public class QuizType_multipleoption extends Frame
                 if(option4 == null || option4 == false)
                 {
                     option4 = true;
-                    q2.answer_option4 = 1;
+                    q2.answer_options[3] = 1;
                 }
                 
                 if(option4 == true)
                 {
                     option4 = false;
-                    q2.answer_option4 = 0;
+                    q2.answer_options[3] = 0;
                 }
             }  
          });  

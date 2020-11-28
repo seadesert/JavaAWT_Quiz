@@ -29,7 +29,16 @@ public class Evaluate {
         }
         else if(q2.question_type.equals("single-option"))
         {
-            if(q2.answer_option == q2.correct_answer_option)
+            Boolean correct = true;
+            for(int i =0; i<3; i++)
+            {
+                if(answer_options[i] != correct_answer_options[i])
+                {
+                    correct = false;
+                }
+            }
+            
+            if(correct == true)
             {
                 q1.score += q2.question_marks;
             }
@@ -37,10 +46,20 @@ public class Evaluate {
         }
         else if(q2.question_type.equals("multiple-option"))
         {
-            if(q2.answer_option1 == q2.correct_answer_option1 && q2.answer_option2 == q2.correct_answer_option2 && q2.answer_option3 == q2.correct_answer_option3 && q2.answer_option4 == q2.correct_answer_option4)
+            Boolean correct = true;
+            for(int i =0; i<3; i++)
+            {
+                if(answer_options[i] != correct_answer_options[i])
+                {
+                    correct = false;
+                }
+            }
+            
+            if(correct == true)
             {
                 q1.score += q2.question_marks;
             }
+            
             
         }
         

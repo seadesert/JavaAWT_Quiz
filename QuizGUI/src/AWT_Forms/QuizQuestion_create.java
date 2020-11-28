@@ -297,7 +297,23 @@ public class QuizQuestion_create extends Frame
                     q2.options[1] = opt2.getText();
                     q2.options[2] = opt3.getText();
                     q2.options[3] = opt4.getText();
-                    q2.correct_answer_option = Integer.parseInt(cbg.getSelectedCheckbox().getLabel());
+                    
+                    if (checkBox1.getState() == true)
+                    {
+                        q2.correct_answer_options[0] = 1;
+                    }
+                    if (checkBox2.getState() == true)
+                    {
+                        q2.correct_answer_options[1] = 1;
+                    }
+                    if (checkBox3.getState() == true)
+                    {
+                        q2.correct_answer_options[2] = 1;
+                    }                                        
+                    if (checkBox4.getState() == true)
+                    {
+                        q2.correct_answer_options[3] = 1;
+                    }     
                     
                    
                 }
@@ -311,19 +327,19 @@ public class QuizQuestion_create extends Frame
                     
                     if (checkBox5.getState() == true)
                     {
-                        q2.correct_answer_option1 = 1;
+                        q2.correct_answer_options[0] = 1;
                     }
                     if (checkBox6.getState() == true)
                     {
-                        q2.correct_answer_option2 = 1;
+                        q2.correct_answer_options[1] = 1;
                     }
                     if (checkBox7.getState() == true)
                     {
-                        q2.correct_answer_option3 = 1;
+                        q2.correct_answer_options[2] = 1;
                     }                                        
                     if (checkBox8.getState() == true)
                     {
-                        q2.correct_answer_option4 = 1;
+                        q2.correct_answer_options[3] = 1;
                     }                         
                 }
                 

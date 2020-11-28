@@ -23,7 +23,7 @@ public class QuizQuestion
 
     public Boolean answer_tf = null;
     
-    public int[] answer_options = new int[]{-1, -1, -1, -1};
+    public int[] answer_options = new int[]{0, 0, 0, 0};
  
     // Holds the correct answers for the question     
     public String correct_answer_string = null;
