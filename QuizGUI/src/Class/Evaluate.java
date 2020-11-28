@@ -2,7 +2,7 @@
 package Class;
 public class Evaluate {
 
-    void Evaluate_Quiz(Quiz q1, QuizQuestion q2)
+    public void Evaluate_Quiz(Quiz q1, QuizQuestion q2)
     {
      
         if(q2.question_type.equals("single-word"))
@@ -14,7 +14,7 @@ public class Evaluate {
         }
         else if(q2.question_type.equals("true-false"))
         {
-            if(q2.answer_tf == q2.correct_answer)
+            if(q2.answer_tf == q2.correct_tf)
             {
                 q1.score += q2.question_marks;
             }
@@ -32,7 +32,7 @@ public class Evaluate {
             Boolean correct = true;
             for(int i =0; i<3; i++)
             {
-                if(answer_options[i] != correct_answer_options[i])
+                if(q2.answer_options[i] != q2.correct_answer_options[i])
                 {
                     correct = false;
                 }
@@ -49,7 +49,7 @@ public class Evaluate {
             Boolean correct = true;
             for(int i =0; i<3; i++)
             {
-                if(answer_options[i] != correct_answer_options[i])
+                if(q2.answer_options[i] != q2.correct_answer_options[i])
                 {
                     correct = false;
                 }

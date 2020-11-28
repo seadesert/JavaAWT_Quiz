@@ -25,7 +25,7 @@ public class QuizType_singleoption extends Frame
     //Holds currently selected value
       static Boolean selected_answer = null; 
 
-    QuizType_singleoption(Quiz q1, QuizQuestion q2)
+    public QuizType_singleoption(Quiz q1, QuizQuestion q2)
     {
 
         //Display the form always on the center of the screen

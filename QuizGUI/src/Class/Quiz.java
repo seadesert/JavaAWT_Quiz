@@ -22,5 +22,5 @@ public class Quiz
     public static int score_max = 0;
     
     //store the current position (question) in the quiz
-    public int current_count = 0;
+    public static int current_count = 0;
 }

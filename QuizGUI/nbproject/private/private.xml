@@ -3,15 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Arun%20Krishna/Documents/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/QuizType_number.java</file>
-            <file>file:/C:/Users/Arun%20Krishna/Documents/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/QuizType_singleword.java</file>
-            <file>file:/C:/Users/Arun%20Krishna/Documents/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/QuizType_singleoption.java</file>
-            <file>file:/C:/Users/Arun%20Krishna/Documents/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/Quiz_create.java</file>
-            <file>file:/C:/Users/Arun%20Krishna/Documents/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/QuizType_truefalse.java</file>
-            <file>file:/C:/Users/Arun%20Krishna/Documents/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/QuizType_multipleoption.java</file>
-            <file>file:/C:/Users/Arun%20Krishna/Documents/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/Class/Quiz.java</file>
-            <file>file:/C:/Users/Arun%20Krishna/Documents/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/QuizQuestion_create.java</file>
-            <file>file:/C:/Users/Arun%20Krishna/Documents/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/Scoreboard.java</file>
+            <file>file:/home/arunkrishna/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/QuizType_multipleoption.java</file>
+            <file>file:/home/arunkrishna/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/Class/Quiz.java</file>
+            <file>file:/home/arunkrishna/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/QuizQuestion_create.java</file>
+            <file>file:/home/arunkrishna/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/QuizType_singleoption.java</file>
+            <file>file:/home/arunkrishna/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/Class/QuizQuestion.java</file>
+            <file>file:/home/arunkrishna/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/Class/Evaluate.java</file>
+            <file>file:/home/arunkrishna/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/AWT_Forms/Quiz_create.java</file>
+            <file>file:/home/arunkrishna/NetBeansProjects/JavaAWT_Quiz/QuizGUI/src/Class/main.java</file>
         </group>
     </open-files>
 </project-private>

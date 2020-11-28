@@ -30,7 +30,7 @@ public class QuizType_multipleoption extends Frame
       static Boolean option3 = null;
       static Boolean option4 = null;
 
-    QuizType_multipleoption(Quiz q1, QuizQuestion q2)
+    public QuizType_multipleoption(Quiz q1, QuizQuestion q2)
     {
 
         //Display the form always on the center of the screen
@@ -134,7 +134,7 @@ public class QuizType_multipleoption extends Frame
                 if(option1 == true)
                 {
                     option1 = false;
-                    q2.answer_option1[0] = 0;
+                    q2.answer_options[0] = 0;
                 }
             }  
          });  

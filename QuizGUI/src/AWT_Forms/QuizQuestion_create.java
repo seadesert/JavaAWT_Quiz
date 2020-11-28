@@ -11,7 +11,7 @@ import java.awt.event.*;
 public class QuizQuestion_create extends Frame
 {
 
-    QuizQuestion_create(Quiz q1, QuizQuestion q2)
+    public QuizQuestion_create(Quiz q1, QuizQuestion q2)
     {
 
         //Display the form always on the center of the screen
@@ -25,6 +25,7 @@ public class QuizQuestion_create extends Frame
 
 
         Label title = new Label("Quiz Name - " + q1.Quiz_Name +" Question " + ++q1.current_count);       
+        q2.question_count  = q1.current_count;
         
         Label title1 = new Label("Question Type:");
         Choice c=new Choice();
@@ -345,11 +346,11 @@ public class QuizQuestion_create extends Frame
                 
                 else if(q2.question_type == "true-false")
                 {
-                    q2.correct_answer = Boolean.parseBoolean(cbg1.getSelectedCheckbox().getLabel());
+                    q2.correct_tf = Boolean.parseBoolean(cbg1.getSelectedCheckbox().getLabel());
                 }
                 else if(q2.question_type == "number")
                 {
-                    q2.correct_answer_number = Integer.parseInt(answer_string.getText());
+                    q2.correct_answer_number = Float.parseFloat(answer_string.getText());
                 }
                 else if(q2.question_type == "single-word")
                 {

@@ -12,7 +12,7 @@ public class Quiz_create extends Frame
 {
 
 
-    Quiz_create(Quiz q1, QuizQuestion q2)
+    public Quiz_create(Quiz q1)
     {
 
         //Display the form always on the center of the screen
@@ -78,11 +78,10 @@ public class Quiz_create extends Frame
             {
                 q1.last_count = Integer.parseInt(number_of_question.getText());
                 q1.Quiz_Name = quiz_name.getText();
-                q1.current_count = 0;
                 
                 q1.total_time = (Integer.parseInt(hh.getText()) * 3600) + (Integer.parseInt(mm.getText()) *60) + (Integer.parseInt(ss.getText()));
                 q1.score_max = 0;
-                q1.state_review = false;
+                setVisible(false);
                 dispose();
             }
 
