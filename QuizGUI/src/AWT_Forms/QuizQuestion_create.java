@@ -11,7 +11,7 @@ import java.awt.event.*;
 public class QuizQuestion_create extends Frame
 {
 
-    public QuizQuestion_create(Quiz q1, QuizQuestion q2)
+    public QuizQuestion_create(QuizQuestion question)
     {
 
         //Display the form always on the center of the screen
@@ -24,9 +24,17 @@ public class QuizQuestion_create extends Frame
         setLocation(dx, dy);
 
 
-        Label title = new Label("Quiz Name - " + q1.Quiz_Name +" Question " + ++q1.current_count);       
-        q2.question_count  = q1.current_count;
+        Label title = new Label("Quiz Name - " + Quiz.Quiz_Name +" Question " + (question.question_count + 1));
         
+        try
+        {
+        question.setQuestion_count(Quiz.current_count);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+                
         Label title1 = new Label("Question Type:");
         Choice c=new Choice();
         c.add("Single Option Answer Type");
@@ -180,7 +188,7 @@ public class QuizQuestion_create extends Frame
                 }
             });
 
-        if(q2.question_count == q1.last_count)
+        if(question.getQuestion_count()+1 == Quiz.last_count)
         {
             add(start);
             next.setVisible(false);
@@ -224,7 +232,7 @@ public class QuizQuestion_create extends Frame
                     opt2.enable();
                     opt3.enable();
                     opt4.enable();
-                    q2.question_type = "single-option";
+                    question.question_type = "single-option";
                 }
                 else if(qt.equals("Multiple Options Answer Type"))
                 {
@@ -236,24 +244,24 @@ public class QuizQuestion_create extends Frame
                     opt6.enable();
                     opt7.enable();
                     opt8.enable();
-                    q2.question_type = "multiple-option";
+                    question.question_type = "multiple-option";
                                   
                 }
                 else if(qt.equals("Numerical Answer Type"))
                 {
                     answer_string.enable();
-                    q2.question_type = "number";
+                    question.question_type = "number";
                 }
                 else if(qt.equals("True/False Answer Type"))
                 {
                     checkBox9.enable();
                     checkBox10.enable();
-                    q2.question_type = "true-false";
+                    question.question_type = "true-false";
                 }
                 else
                 {
                     answer_string.enable();
-                    q2.question_type = "single-word";
+                    question.question_type = "single-word";
                 }
             }
 
@@ -288,77 +296,77 @@ public class QuizQuestion_create extends Frame
             public void mouseClicked(MouseEvent me) 
             {
                 
-                q2.question_count = q1.current_count;
-                q2.question_marks = Integer.parseInt(score.getText());
-                q2.question_string = question_description.getText();
+                question.question_count = Quiz.current_count;
+                question.question_marks = Integer.parseInt(score.getText());
+                question.question_string = question_description.getText();
                 
-                if(q2.question_type == "single-option")
+                if(question.question_type == "single-option")
                 {
-                    q2.options[0] = opt1.getText();
-                    q2.options[1] = opt2.getText();
-                    q2.options[2] = opt3.getText();
-                    q2.options[3] = opt4.getText();
+                    question.options[0] = opt1.getText();
+                    question.options[1] = opt2.getText();
+                    question.options[2] = opt3.getText();
+                    question.options[3] = opt4.getText();
                     
                     if (checkBox1.getState() == true)
                     {
-                        q2.correct_answer_options[0] = 1;
+                        question.correct_answer_options[0] = 1;
                     }
                     if (checkBox2.getState() == true)
                     {
-                        q2.correct_answer_options[1] = 1;
+                        question.correct_answer_options[1] = 1;
                     }
                     if (checkBox3.getState() == true)
                     {
-                        q2.correct_answer_options[2] = 1;
+                        question.correct_answer_options[2] = 1;
                     }                                        
                     if (checkBox4.getState() == true)
                     {
-                        q2.correct_answer_options[3] = 1;
+                        question.correct_answer_options[3] = 1;
                     }     
                     
                    
                 }
                 
-                else if(q2.question_type == "multiple-option")
+                else if(question.question_type == "multiple-option")
                 {
-                    q2.options[0] = opt5.getText();
-                    q2.options[1] = opt6.getText();
-                    q2.options[2] = opt7.getText();
-                    q2.options[3] = opt8.getText();  
+                    question.options[0] = opt5.getText();
+                    question.options[1] = opt6.getText();
+                    question.options[2] = opt7.getText();
+                    question.options[3] = opt8.getText();  
                     
                     if (checkBox5.getState() == true)
                     {
-                        q2.correct_answer_options[0] = 1;
+                        question.correct_answer_options[0] = 1;
                     }
                     if (checkBox6.getState() == true)
                     {
-                        q2.correct_answer_options[1] = 1;
+                        question.correct_answer_options[1] = 1;
                     }
                     if (checkBox7.getState() == true)
                     {
-                        q2.correct_answer_options[2] = 1;
+                        question.correct_answer_options[2] = 1;
                     }                                        
                     if (checkBox8.getState() == true)
                     {
-                        q2.correct_answer_options[3] = 1;
+                        question.correct_answer_options[3] = 1;
                     }                         
                 }
                 
-                else if(q2.question_type == "true-false")
+                else if(question.question_type == "true-false")
                 {
-                    q2.correct_tf = Boolean.parseBoolean(cbg1.getSelectedCheckbox().getLabel());
+                    question.correct_tf = Boolean.parseBoolean(cbg1.getSelectedCheckbox().getLabel());
                 }
-                else if(q2.question_type == "number")
+                else if(question.question_type == "number")
                 {
-                    q2.correct_answer_number = Float.parseFloat(answer_string.getText());
+                    question.correct_answer_number = Float.parseFloat(answer_string.getText());
                 }
-                else if(q2.question_type == "single-word")
+                else if(question.question_type == "single-word")
                 {
-                    q2.correct_answer_string = answer_string.getText();
+                    question.correct_answer_string = answer_string.getText();
                 }
                 
   //              throw new UnsupportedOperationException("qc:" + q2.question_count + "\nqm: " + q2.question_marks + "\nqt:"+ q2.question_type + "\nqs:"+ q2.question_string + "\nqa:" + q2.correct_answer_option + "\nqt:" + q2.correct_answer + "\nqn: " + q2.correct_answer_number + "\nqm1:" + q2.correct_answer_option1+ "\nqm2:" + q2.correct_answer_option2+ "\nqm3:" + q2.correct_answer_option3+ "\nqm4:" + q2.correct_answer_option4 + "\nqw"+ q2.correct_answer_string); 
-                q1.score_max += q2.question_marks;
+                Quiz.score_max += question.question_marks;
                 dispose();            
             }
 

@@ -30,7 +30,7 @@ public class QuizType_multipleoption extends Frame
       static Boolean option3 = null;
       static Boolean option4 = null;
 
-    public QuizType_multipleoption(Quiz q1, QuizQuestion q2)
+    public QuizType_multipleoption(QuizQuestion q2)
     {
 
         //Display the form always on the center of the screen
@@ -44,8 +44,8 @@ public class QuizType_multipleoption extends Frame
 
 
         //footer, displays the score and the Time left for the quiz
-        Label score_label = new Label("Score: " + q1.score + " Marks");
-        Label time_left = new Label("Time left: " + q1.time_left);
+        Label score_label = new Label("Score: " + Quiz.score + " Marks");
+        Label time_left = new Label("Time left: " + Quiz.time_left);
         Button finish = new Button ("Submit Quiz");
 
 
@@ -62,7 +62,7 @@ public class QuizType_multipleoption extends Frame
             Question Section, print the question from the String "question_string" from the class QuizQuestion
             Also Prints the type of question and the current Question Count
         */
-        Label Question_count = new Label("Question " + q2.question_count + " - Multiple Option - MCQ");
+        Label Question_count = new Label("Question " + (q2.question_count+1) + " - Multiple Option - MCQ");
         Question_count.setBounds(160, 50, 200, 20);
         add(Question_count);
         Font font_question = new Font("sans-serif", Font.PLAIN, 14);
@@ -217,7 +217,7 @@ public class QuizType_multipleoption extends Frame
 
                   
                       //previous question, decrease count
-                      q1.current_count = q1.current_count - 1;
+                      Quiz.current_count = Quiz.current_count - 1;
                       dispose();
               }
             
@@ -244,7 +244,7 @@ public class QuizType_multipleoption extends Frame
                   
                   
                       //increase question count
-                      q1.current_count = q1.current_count + 1;
+                      Quiz.current_count = Quiz.current_count + 1;
                       dispose();
               }
 
@@ -271,7 +271,7 @@ public class QuizType_multipleoption extends Frame
             back.enable(false);
         }
 
-        if(q2.question_count == q1.last_count)
+        if(q2.question_count == Quiz.last_count)
         {
             next.enable(false);
             add(finish);
