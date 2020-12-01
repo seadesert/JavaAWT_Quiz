@@ -9,6 +9,7 @@ public class main {
     public static void main(String[] args) throws InterruptedException 
     {
 
+        //create quiz object
         Quiz q = new Quiz();
         
         AWT_Forms.Quiz_create quiz_form = new AWT_Forms.Quiz_create(q);
@@ -17,6 +18,7 @@ public class main {
                 Thread.sleep(100);
             }
 
+        //creates and initliazes questions 
         QuizQuestion[] question = new QuizQuestion[q.last_count+1];
         
         for(int  i=0; i<=q.last_count; i++)
@@ -27,6 +29,7 @@ public class main {
         
         System.out.print("qc - " + q.current_count + "\n ql - " + q.last_count); 
         
+        //Create the questions
         q.current_count = 0;
         while(q.current_count < q.last_count)
         {
@@ -38,10 +41,12 @@ public class main {
             q.current_count++;
         }
         
+        //Displays the questions
         q.current_count = 0;
         while(q.current_count < q.last_count)
         {
-            if(question[q.current_count].getQuestion_type().equals("single_option"))
+            
+            if(question[q.current_count].getQuestion_type().equals("single-option"))
             {
                 AWT_Forms.QuizType_singleoption questionform = new AWT_Forms.QuizType_singleoption(question[q.current_count]);
                 while(questionform.isVisible())
@@ -89,7 +94,26 @@ public class main {
             q.current_count++;
         }
         
+         //Evaluate the questions        
+        q.current_count = 0;
+        while(q.current_count < q.last_count)
+        {
+            Evaluate e = new Evaluate();
+
+            e.Evaluate_Quiz(question[q.current_count]);
+            q.current_count++;
+        }
         
+        
+        //Display scoreboard
+        AWT_Forms.Scoreboard scoreboard = new AWT_Forms.Scoreboard();
+        while(scoreboard.isVisible())
+        {
+            Thread.sleep(100);
+        }
+         
+         
+         
     }
     
 }

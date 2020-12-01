@@ -72,93 +72,16 @@ public class QuizQuestion
         this.question_count = question_count;
     }
 
-    public int getQuestion_marks() {
-        return question_marks;
+    public int getTime_taken() {
+        return time_taken;
     }
 
-    public void setQuestion_marks(int question_marks) {
-        this.question_marks = question_marks;
+    public void setTime_taken(int time_taken) {
+        this.time_taken = time_taken;
     }
+    
+    
 
-    public String getQuestion_string() {
-        return question_string;
-    }
-
-    public void setQuestion_string(String question_string) {
-        this.question_string = question_string;
-    }
-
-    public String[] getOptions() {
-        return options;
-    }
-
-    public void setOptions(String[] options) {
-        this.options = options;
-    }
-
-    public String getAnswer_string() {
-        return answer_string;
-    }
-
-    public void setAnswer_string(String answer_string) {
-        this.answer_string = answer_string;
-    }
-
-    public Float getAnswer_number() {
-        return answer_number;
-    }
-
-    public void setAnswer_number(Float answer_number) {
-        this.answer_number = answer_number;
-    }
-
-    public Boolean getAnswer_tf() {
-        return answer_tf;
-    }
-
-    public void setAnswer_tf(Boolean answer_tf) {
-        this.answer_tf = answer_tf;
-    }
-
-    public int[] getAnswer_options() {
-        return answer_options;
-    }
-
-    public void setAnswer_options(int[] answer_options) {
-        this.answer_options = answer_options;
-    }
-
-    public String getCorrect_answer_string() {
-        return correct_answer_string;
-    }
-
-    public void setCorrect_answer_string(String correct_answer_string) {
-        this.correct_answer_string = correct_answer_string;
-    }
-
-    public Float getCorrect_answer_number() {
-        return correct_answer_number;
-    }
-
-    public void setCorrect_answer_number(Float correct_answer_number) {
-        this.correct_answer_number = correct_answer_number;
-    }
-
-    public Boolean getCorrect_tf() {
-        return correct_tf;
-    }
-
-    public void setCorrect_tf(Boolean correct_tf) {
-        this.correct_tf = correct_tf;
-    }
-
-    public int[] getCorrect_answer_options() {
-        return correct_answer_options;
-    }
-
-    public void setCorrect_answer_options(int[] correct_answer_options) {
-        this.correct_answer_options = correct_answer_options;
-    }
 
 
 }

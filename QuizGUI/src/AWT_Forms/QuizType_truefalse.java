@@ -3,7 +3,6 @@ package AWT_Forms;
 import Class.QuizQuestion;
 import Class.Quiz;
 import java.awt.*;
-import java.awt.Font.*;
 import java.awt.event.*;
 
 
@@ -25,7 +24,7 @@ public class QuizType_truefalse extends Frame
     //Holds currently selected value
       static Boolean selected_answer = null; 
 
-    public QuizType_truefalse(QuizQuestion q2)
+    public QuizType_truefalse(QuizQuestion question)
     {
 
         //Display the form always on the center of the screen
@@ -57,11 +56,11 @@ public class QuizType_truefalse extends Frame
             Question Section, print the question from the String "question_string" from the class QuizQuestion
             Also Prints the type of question and the current Question Count
         */
-        Label Question_count = new Label("Question " + (q2.question_count+1) + " - True or False");
+        Label Question_count = new Label("Question " + (question.question_count+1) + " - True or False");
         Question_count.setBounds(180, 50, 200, 20);
         add(Question_count);
         Font font_question = new Font("sans-serif", Font.PLAIN, 14);
-        TextArea Question = new TextArea(q2.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
+        TextArea Question = new TextArea(question.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
         Question.setFont(font_question);
         
         Question.setBackground(Color.WHITE);
@@ -84,9 +83,9 @@ public class QuizType_truefalse extends Frame
             add(checkBox1);
             add(checkBox2);
             //Load previous answered value
-            if(q2.answer_tf != null)
+            if(question.answer_tf != null)
             {
-                if(q2.answer_tf == true)
+                if(question.answer_tf == true)
                 {
                     checkBox1.setState(true);
                     checkBox2.setState(false);
@@ -131,7 +130,19 @@ public class QuizType_truefalse extends Frame
             //Back Button Function TODO: Goto pevious Question Form
               MouseListener ml = new MouseListener() {
               @Override
-              public void mouseClicked(MouseEvent me) {}
+              public void mouseClicked(MouseEvent me) {
+              
+                                if(save_question == true && selected_answer != null)
+                  {
+                      //saves the answer in the QuizQuesiton
+                      question.answer_tf = selected_answer;
+                      
+                  }
+                  
+                      //previous question, decrease count
+                      Quiz.current_count = Quiz.current_count - 1;
+                      dispose();
+              }
               
               @Override
               public void mousePressed(MouseEvent me) {}
@@ -142,16 +153,7 @@ public class QuizType_truefalse extends Frame
               @Override
               public void mouseEntered(MouseEvent me)
               {
-                  if(save_question == true && selected_answer != null)
-                  {
-                      //saves the answer in the QuizQuesiton
-                      q2.answer_tf = selected_answer;
-                      
-                  }
-                  
-                      //previous question, decrease count
-                      Quiz.current_count = Quiz.current_count - 1;
-                      dispose();
+
               }
             
             //Next Button Functions TODO: goto next Question Form
@@ -162,7 +164,19 @@ public class QuizType_truefalse extends Frame
               
               MouseListener m2 = new MouseListener() {
               @Override
-              public void mouseClicked(MouseEvent me) {}
+              public void mouseClicked(MouseEvent me) {
+              
+                                  if(save_question == true && selected_answer != null)
+                    {
+                        //saves the answer in the QuizQuesiton
+                        question.answer_tf = selected_answer;
+
+                    }
+                  
+                      //increase question count
+                      Quiz.current_count = Quiz.current_count + 1;
+                      dispose();
+              }
               
               @Override
               public void mousePressed(MouseEvent me) {}
@@ -174,16 +188,7 @@ public class QuizType_truefalse extends Frame
               public void mouseEntered(MouseEvent me)
               {
                   
-                    if(save_question == true && selected_answer != null)
-                    {
-                        //saves the answer in the QuizQuesiton
-                        q2.answer_tf = selected_answer;
 
-                    }
-                  
-                      //increase question count
-                      Quiz.current_count = Quiz.current_count + 1;
-                      dispose();
               }
 
             @Override
@@ -204,12 +209,12 @@ public class QuizType_truefalse extends Frame
         if its the last question show "Submit Quiz" Button
         */
 
-        if(q2.question_count == 1)
+        if(question.question_count+1 == 1)
         {
             back.enable(false);
         }
 
-        if(q2.question_count == Quiz.last_count)
+        if(question.question_count+1 == Quiz.last_count)
         {
             next.enable(false);
             add(finish);

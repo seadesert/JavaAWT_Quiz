@@ -12,7 +12,7 @@ public class Scoreboard extends Frame
 {
 
     
-    Scoreboard(Quiz q1)
+    public Scoreboard()
     {
 
         //Display the form always on the center of the screen
@@ -25,18 +25,21 @@ public class Scoreboard extends Frame
         setLocation(dx, dy);
 
 
-        Label title = new Label("Score Board - " + q1.Quiz_Name);
-        Label title1 = new Label("Score: "+ q1.score + "/" + q1.score_max);
+        Label title = new Label("Score Board - " + Quiz.Quiz_Name);
+        Label title1 = new Label("Score: "+ Quiz.score + "/" + Quiz.score_max);
+        Label title2 = new Label("Timetaken: "+ Quiz.total_time);
 
         
         Button create = new Button("Close");
          
         title.setBounds(200, 50, 200, 20);
         title1.setBounds(220, 200, 100, 20);
+        title2.setBounds(220, 250, 100, 20);
         create.setBounds(200, 350, 100, 30);
 
         add(title);
         add(title1);
+        add(title2);
         add(create);
 
         MouseListener m1 = new MouseListener()

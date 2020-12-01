@@ -24,7 +24,7 @@ public class QuizType_number extends Frame
       static boolean save_question = true;
 
 
-    public QuizType_number(QuizQuestion q2)
+    public QuizType_number(QuizQuestion question)
     {
 
         //Display the form always on the center of the screen
@@ -55,11 +55,11 @@ public class QuizType_number extends Frame
             Question Section, print the question from the String "question_string" from the class QuizQuestion
             Also Prints the type of question and the current Question Count
         */
-        Label Question_count = new Label("Question " + (q2.question_count+1) + " - Number");
+        Label Question_count = new Label("Question " + (question.question_count+1) + " - Number");
         Question_count.setBounds(180, 50, 200, 20);
         add(Question_count);
         Font font_question = new Font("sans-serif", Font.PLAIN, 14);
-        TextArea Question = new TextArea(q2.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
+        TextArea Question = new TextArea(question.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
         Question.setFont(font_question);
         
         Question.setBackground(Color.WHITE);
@@ -77,9 +77,9 @@ public class QuizType_number extends Frame
         Font font_answer = new Font("sans-serif", Font.PLAIN, 16);
         string_answer.setFont(font_answer);
         
-        if(q2.answer_string != null)
+        if(question.answer_string != null)
         {
-            string_answer.setText(q2.answer_string);
+            string_answer.setText(question.answer_string);
         }
 
 
@@ -109,7 +109,20 @@ public class QuizType_number extends Frame
             //Back Button Function TODO: Goto pevious Question Form
               MouseListener ml = new MouseListener() {
               @Override
-              public void mouseClicked(MouseEvent me) {}
+              public void mouseClicked(MouseEvent me) {
+              
+                  if(save_question == true)
+                  {
+                      //saves the answer in the QuizQuesiton
+                      question.answer_number = Float.parseFloat(string_answer.getText());
+
+                  }
+                  
+                      //previous question, decrease count
+                      Quiz.current_count = Quiz.current_count - 1;
+                      dispose();
+                  
+              }
               
               @Override
               public void mousePressed(MouseEvent me) {}
@@ -120,15 +133,7 @@ public class QuizType_number extends Frame
               @Override
               public void mouseEntered(MouseEvent me)
               {
-                  if(save_question == true)
-                  {
-                      //saves the answer in the QuizQuesiton
-                      q2.answer_number = Float.parseFloat(string_answer.getText());
-                  }
-                  
-                      //previous question, decrease count
-                      Quiz.current_count = Quiz.current_count - 1;
-                      dispose();
+
               }
             
               
@@ -140,7 +145,20 @@ public class QuizType_number extends Frame
               
               MouseListener m2 = new MouseListener() {
               @Override
-              public void mouseClicked(MouseEvent me) {}
+              public void mouseClicked(MouseEvent me) {
+              
+              
+                                if(save_question == true)
+                  {
+                      
+                      //saves the answer in the QuizQuesiton
+                      question.answer_number = Float.parseFloat(string_answer.getText());
+                  }
+                  
+                      //increase question count
+                      Quiz.current_count = Quiz.current_count + 1;
+                      dispose();
+              }
               
               @Override
               public void mousePressed(MouseEvent me) {}
@@ -151,23 +169,14 @@ public class QuizType_number extends Frame
               @Override
               public void mouseEntered(MouseEvent me)
               {
-                  if(save_question == true)
-                  {
-                      
-                      //saves the answer in the QuizQuesiton
-                      q2.answer_number = Float.parseFloat(string_answer.getText());
-                  }
-                  
-                      //increase question count
-                      Quiz.current_count = Quiz.current_count + 1;
-                      dispose();
+
               }
 
             @Override
             public void mouseExited(MouseEvent me) {
             }
               };
-
+              
 
         back.addMouseListener(ml);
         next.addMouseListener(m2);
@@ -182,12 +191,12 @@ public class QuizType_number extends Frame
         if its the last question show "Submit Quiz" Button
         */
 
-        if(q2.question_count == 1)
+        if(question.question_count+1 == 1)
         {
             back.enable(false);
         }
 
-        if(q2.question_count == Quiz.last_count)
+        if(question.question_count+1 == Quiz.last_count)
         {
             next.enable(false);
             add(finish);

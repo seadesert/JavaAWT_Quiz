@@ -25,7 +25,7 @@ public class QuizType_singleoption extends Frame
     //Holds currently selected value
       static Boolean selected_answer = null; 
 
-    public QuizType_singleoption(QuizQuestion q2)
+    public QuizType_singleoption(QuizQuestion question)
     {
 
         //Display the form always on the center of the screen
@@ -57,11 +57,11 @@ public class QuizType_singleoption extends Frame
             Question Section, print the question from the String "question_string" from the class QuizQuestion
             Also Prints the type of question and the current Question Count
         */
-        Label Question_count = new Label("Question " + (q2.question_count+1) + " - Single Option - MCQ");
+        Label Question_count = new Label("Question " + (question.question_count+1) + " - Single Option - MCQ");
         Question_count.setBounds(160, 50, 200, 20);
         add(Question_count);
         Font font_question = new Font("sans-serif", Font.PLAIN, 14);
-        TextArea Question = new TextArea(q2.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
+        TextArea Question = new TextArea(question.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
         Question.setFont(font_question);
         
         Question.setBackground(Color.WHITE);
@@ -74,16 +74,16 @@ public class QuizType_singleoption extends Frame
 
         //Options
         CheckboxGroup cbg = new CheckboxGroup();
-            Checkbox checkBox1 = new Checkbox(q2.options[0] , cbg, false);
+            Checkbox checkBox1 = new Checkbox(question.options[0] , cbg, false);
             checkBox1.setBounds(125,180, 300,40);   
             
-            Checkbox checkBox2 = new Checkbox(q2.options[1], cbg, false);    
+            Checkbox checkBox2 = new Checkbox(question.options[1], cbg, false);    
             checkBox2.setBounds(125,210, 300,40);  
             
-            Checkbox checkBox3 = new Checkbox(q2.options[2], cbg, false);
+            Checkbox checkBox3 = new Checkbox(question.options[2], cbg, false);
             checkBox3.setBounds(125,240, 300,40);   
             
-            Checkbox checkBox4 = new Checkbox(q2.options[3], cbg, false);    
+            Checkbox checkBox4 = new Checkbox(question.options[3], cbg, false);    
             checkBox4.setBounds(125,270, 300,40); 
             
             add(checkBox1);
@@ -92,9 +92,9 @@ public class QuizType_singleoption extends Frame
             add(checkBox4);
 
             //Load previous answered value
-            if(q2.answer_options[0] != -1 || q2.answer_options[1] != -1 || q2.answer_options[2] != -1 || q2.answer_options[3] != -1)
+            if(question.answer_options[0] != -1 || question.answer_options[1] != -1 || question.answer_options[2] != -1 || question.answer_options[3] != -1)
             {
-                if(q2.answer_options[0] == 1)
+                if(question.answer_options[0] == 1)
                 {
                     checkBox1.setState(true);
                     checkBox2.setState(false);
@@ -102,7 +102,7 @@ public class QuizType_singleoption extends Frame
                     checkBox4.setState(false);
                 }
                 
-                else if (q2.answer_options[1] == 1)
+                else if (question.answer_options[1] == 1)
                 {
                     checkBox1.setState(false);
                     checkBox2.setState(true);
@@ -110,7 +110,7 @@ public class QuizType_singleoption extends Frame
                     checkBox4.setState(false);
                 }
                 
-                else if (q2.answer_options[2] == 1)
+                else if (question.answer_options[2] == 1)
                 {
                     checkBox1.setState(false);
                     checkBox2.setState(false);
@@ -118,7 +118,7 @@ public class QuizType_singleoption extends Frame
                     checkBox4.setState(false);
                 }
                 
-                else if (q2.answer_options[3] == 1)
+                else if (question.answer_options[3] == 1)
                 {
                     checkBox1.setState(false);
                     checkBox2.setState(false);
@@ -135,39 +135,39 @@ public class QuizType_singleoption extends Frame
             checkBox1.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                q2.answer_options[0] = 1; 
-                q2.answer_options[1] = 0;
-                q2.answer_options[2] = 0;
-                q2.answer_options[3] = 0;
+                question.answer_options[0] = 1; 
+                question.answer_options[1] = 0;
+                question.answer_options[2] = 0;
+                question.answer_options[3] = 0;
             }  
          });  
             
             checkBox2.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                q2.answer_options[0] = 0; 
-                q2.answer_options[1] = 1;
-                q2.answer_options[2] = 0;
-                q2.answer_options[3] = 0;
+                question.answer_options[0] = 0; 
+                question.answer_options[1] = 1;
+                question.answer_options[2] = 0;
+                question.answer_options[3] = 0;
             }  
          });
             
              checkBox3.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                q2.answer_options[0] = 0; 
-                q2.answer_options[1] = 0;
-                q2.answer_options[2] = 1;
-                q2.answer_options[3] = 0;
+                question.answer_options[0] = 0; 
+                question.answer_options[1] = 0;
+                question.answer_options[2] = 1;
+                question.answer_options[3] = 0;
             }  
          });
             checkBox4.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                q2.answer_options[0] = 0; 
-                q2.answer_options[1] = 0;
-                q2.answer_options[2] = 0;
-                q2.answer_options[3] = 1;
+                question.answer_options[0] = 0; 
+                question.answer_options[1] = 0;
+                question.answer_options[2] = 0;
+                question.answer_options[3] = 1;
             }  
          });  
         
@@ -185,7 +185,12 @@ public class QuizType_singleoption extends Frame
             //Back Button Function TODO: Goto pevious Question Form
               MouseListener ml = new MouseListener() {
               @Override
-              public void mouseClicked(MouseEvent me) {}
+              public void mouseClicked(MouseEvent me) {
+              
+                                    //previous question, decrease count
+                      Quiz.current_count = Quiz.current_count - 1;
+                      dispose();
+              }
               
               @Override
               public void mousePressed(MouseEvent me) {}
@@ -197,9 +202,7 @@ public class QuizType_singleoption extends Frame
               public void mouseEntered(MouseEvent me)
               {
                   
-                      //previous question, decrease count
-                      Quiz.current_count = Quiz.current_count - 1;
-                      dispose();
+
               }
             
             //Next Button Functions TODO: goto next Question Form
@@ -210,7 +213,12 @@ public class QuizType_singleoption extends Frame
               
               MouseListener m2 = new MouseListener() {
               @Override
-              public void mouseClicked(MouseEvent me) {}
+              public void mouseClicked(MouseEvent me) {
+              
+                                        //increase question count
+                      Quiz.current_count = Quiz.current_count + 1;
+                      dispose();
+              }
               
               @Override
               public void mousePressed(MouseEvent me) {}
@@ -223,9 +231,7 @@ public class QuizType_singleoption extends Frame
               {
                   
                   
-                      //increase question count
-                      Quiz.current_count = Quiz.current_count + 1;
-                      dispose();
+
                       
               }
 
@@ -247,12 +253,12 @@ public class QuizType_singleoption extends Frame
         if its the last question show "Submit Quiz" Button
         */
 
-        if(q2.question_count == 1)
+        if(question.question_count+1 == 1)
         {
             back.enable(false);
         }
 
-        if(q2.question_count == Quiz.last_count)
+        if(question.question_count+1 == Quiz.last_count)
         {
             next.enable(false);
             add(finish);

@@ -25,12 +25,12 @@ public class QuizType_multipleoption extends Frame
     //Holds currently selected value
       static Boolean selected_answer = null; 
       
-      static Boolean option1 = null;
-      static Boolean option2 = null;
-      static Boolean option3 = null;
-      static Boolean option4 = null;
+      static int option1 = 0;
+      static int option2 = 0;
+      static int option3 = 0;
+      static int option4 = 0;
 
-    public QuizType_multipleoption(QuizQuestion q2)
+    public QuizType_multipleoption(QuizQuestion question)
     {
 
         //Display the form always on the center of the screen
@@ -62,11 +62,11 @@ public class QuizType_multipleoption extends Frame
             Question Section, print the question from the String "question_string" from the class QuizQuestion
             Also Prints the type of question and the current Question Count
         */
-        Label Question_count = new Label("Question " + (q2.question_count+1) + " - Multiple Option - MCQ");
+        Label Question_count = new Label("Question " + (question.question_count+1) + " - Multiple Option - MCQ");
         Question_count.setBounds(160, 50, 200, 20);
         add(Question_count);
         Font font_question = new Font("sans-serif", Font.PLAIN, 14);
-        TextArea Question = new TextArea(q2.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
+        TextArea Question = new TextArea(question.question_string, 10, 100, TextArea.SCROLLBARS_NONE);
         Question.setFont(font_question);
         
         Question.setBackground(Color.WHITE);
@@ -79,16 +79,16 @@ public class QuizType_multipleoption extends Frame
 
         //Options
 
-            Checkbox checkBox1 = new Checkbox(q2.options[0] , false);
+            Checkbox checkBox1 = new Checkbox(question.options[0] , false);
             checkBox1.setBounds(125,180, 300,40);   
             
-            Checkbox checkBox2 = new Checkbox(q2.options[1], false);    
+            Checkbox checkBox2 = new Checkbox(question.options[1], false);    
             checkBox2.setBounds(125,210, 300,40);  
             
-            Checkbox checkBox3 = new Checkbox(q2.options[2], false);
+            Checkbox checkBox3 = new Checkbox(question.options[2], false);
             checkBox3.setBounds(125,240, 300,40);   
             
-            Checkbox checkBox4 = new Checkbox(q2.options[3], false);    
+            Checkbox checkBox4 = new Checkbox(question.options[3], false);    
             checkBox4.setBounds(125,270, 300,40); 
             
             add(checkBox1);
@@ -97,24 +97,24 @@ public class QuizType_multipleoption extends Frame
             add(checkBox4);
 
             //Load previous answered value
-            if(q2.answer_options[0] != -1 || q2.answer_options[1] != -1 || q2.answer_options[2] != -1 || q2.answer_options[3] != -1)
+            if(question.answer_options[0] != -1 || question.answer_options[1] != -1 || question.answer_options[2] != -1 || question.answer_options[3] != -1)
             {
-                if(q2.answer_options[0] == 1)
+                if(question.answer_options[0] == 1)
                 {
                     checkBox1.setState(true);
                 }
                 
-                else if (q2.answer_options[1] == 1)
+                else if (question.answer_options[1] == 1)
                 {
                     checkBox2.setState(true);
                 }
                 
-                else if (q2.answer_options[2] == 1)
+                else if (question.answer_options[2] == 1)
                 {
                     checkBox3.setState(true);
                 }
                 
-                else if (q2.answer_options[3] == 1)
+                else if (question.answer_options[3] == 1)
                 {
                     checkBox4.setState(true);
                 }
@@ -125,67 +125,55 @@ public class QuizType_multipleoption extends Frame
             checkBox1.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {     
-                if(option1 == null || option1 == false)
-                {
-                    option1 = true;
-                    q2.answer_options[0] = 1;
-                }
-                
-                if(option1 == true)
-                {
-                    option1 = false;
-                    q2.answer_options[0] = 0;
-                }
+               if(checkBox1.getState() == true)
+               {
+                   question.answer_options[0] = 1; 
+               }
+               else
+               {
+                   question.answer_options[0] = 0;                    
+               }
             }  
          });  
             
             checkBox2.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                if(option2 == null || option2 == false)
-                {
-                    option2 = true;
-                    q2.answer_options[1] = 1;
-                }
-                
-                if(option2 == true)
-                {
-                    option2 = false;
-                    q2.answer_options[1] = 0;
-                }
+               if(checkBox1.getState() == true)
+               {
+                   question.answer_options[1] = 1; 
+               }
+               else
+               {
+                   question.answer_options[1] = 0;                    
+               }
             }  
          });
             
              checkBox3.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                if(option3 == null || option3 == false)
-                {
-                    option3 = true;
-                    q2.answer_options[2] = 1;
-                }
-                
-                if(option3 == true)
-                {
-                    option3 = false;
-                    q2.answer_options[2] = 0;
-                }
+               if(checkBox1.getState() == true)
+               {
+                   question.answer_options[2] = 1; 
+               }
+               else
+               {
+                   question.answer_options[2] = 0;                    
+               }
             }  
          });
             checkBox4.addItemListener(new ItemListener() {  
             public void itemStateChanged(ItemEvent e) 
             {               
-                if(option4 == null || option4 == false)
-                {
-                    option4 = true;
-                    q2.answer_options[3] = 1;
-                }
-                
-                if(option4 == true)
-                {
-                    option4 = false;
-                    q2.answer_options[3] = 0;
-                }
+               if(checkBox1.getState() == true)
+               {
+                   question.answer_options[3] = 1; 
+               }
+               else
+               {
+                   question.answer_options[3] = 0;                    
+               }
             }  
          });  
         
@@ -203,7 +191,14 @@ public class QuizType_multipleoption extends Frame
             //Back Button Function TODO: Goto pevious Question Form
               MouseListener ml = new MouseListener() {
               @Override
-              public void mouseClicked(MouseEvent me) {}
+              public void mouseClicked(MouseEvent me) {
+              
+              
+                  
+                      //previous question, decrease count
+                      Quiz.current_count = Quiz.current_count - 1;
+                      dispose();
+              }
               
               @Override
               public void mousePressed(MouseEvent me) {}
@@ -215,10 +210,6 @@ public class QuizType_multipleoption extends Frame
               public void mouseEntered(MouseEvent me)
               {
 
-                  
-                      //previous question, decrease count
-                      Quiz.current_count = Quiz.current_count - 1;
-                      dispose();
               }
             
             //Next Button Functions TODO: goto next Question Form
@@ -229,7 +220,15 @@ public class QuizType_multipleoption extends Frame
               
               MouseListener m2 = new MouseListener() {
               @Override
-              public void mouseClicked(MouseEvent me) {}
+              public void mouseClicked(MouseEvent me) {
+              
+              
+                                
+                  
+                      //increase question count
+                      Quiz.current_count = Quiz.current_count + 1;
+                      dispose();
+              }
               
               @Override
               public void mousePressed(MouseEvent me) {}
@@ -241,11 +240,7 @@ public class QuizType_multipleoption extends Frame
               public void mouseEntered(MouseEvent me)
               {
 
-                  
-                  
-                      //increase question count
-                      Quiz.current_count = Quiz.current_count + 1;
-                      dispose();
+
               }
 
             @Override
@@ -266,12 +261,12 @@ public class QuizType_multipleoption extends Frame
         if its the last question show "Submit Quiz" Button
         */
 
-        if(q2.question_count == 1)
+        if(question.question_count+1 == 1)
         {
             back.enable(false);
         }
 
-        if(q2.question_count == Quiz.last_count)
+        if(question.question_count+1 == Quiz.last_count)
         {
             next.enable(false);
             add(finish);
