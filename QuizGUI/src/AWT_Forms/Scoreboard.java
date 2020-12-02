@@ -27,14 +27,14 @@ public class Scoreboard extends Frame
 
         Label title = new Label("Score Board - " + Quiz.Quiz_Name);
         Label title1 = new Label("Score: "+ Quiz.score + "/" + Quiz.score_max);
-        Label title2 = new Label("Timetaken: "+ Quiz.total_time);
+        Label title2 = new Label("Timetaken: "+ Quiz.time_taken  +"/"+ Quiz.total_time);
 
         
         Button create = new Button("Close");
          
         title.setBounds(200, 50, 200, 20);
         title1.setBounds(220, 200, 100, 20);
-        title2.setBounds(220, 250, 100, 20);
+        title2.setBounds(220, 250, 200, 20);
         create.setBounds(200, 350, 100, 30);
 
         add(title);

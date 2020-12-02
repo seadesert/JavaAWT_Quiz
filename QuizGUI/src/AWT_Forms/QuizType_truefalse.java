@@ -166,7 +166,7 @@ public class QuizType_truefalse extends Frame
               @Override
               public void mouseClicked(MouseEvent me) {
               
-                                  if(save_question == true && selected_answer != null)
+                    if(save_question == true && selected_answer != null)
                     {
                         //saves the answer in the QuizQuesiton
                         question.answer_tf = selected_answer;
