@@ -1,7 +1,8 @@
 
-package Class;
+package Quiz;
 
 import AWT_Forms.*;
+import java.util.Timer;
 
 public class main {
 
@@ -45,6 +46,7 @@ public class main {
         q.current_count = 0;
         while(q.current_count < q.last_count)
         {
+
             
             if(question[q.current_count].getQuestion_type().equals("single-option"))
             {

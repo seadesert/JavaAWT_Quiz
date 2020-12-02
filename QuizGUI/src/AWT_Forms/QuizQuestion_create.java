@@ -1,7 +1,7 @@
 package AWT_Forms;
 
-import Class.QuizQuestion;
-import Class.Quiz;
+import Quiz.QuizQuestion;
+import Quiz.Quiz;
 import java.awt.*;
 import java.awt.Font.*;
 import java.awt.event.*;
@@ -54,7 +54,7 @@ public class QuizQuestion_create extends Frame
         TextField question_description = new TextField("");
         TextField score = new TextField("");
 
-        title.setBounds(300, 50, 220, 20);
+        title.setBounds(300, 50, 300, 20);
         title1.setBounds(40, 150, 150, 20);
         title2.setBounds(40, 210, 200, 20);
         title3.setBounds(40, 280, 100, 20);

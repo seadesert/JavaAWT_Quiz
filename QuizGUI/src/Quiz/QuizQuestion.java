@@ -1,4 +1,4 @@
-package Class;
+package Quiz;
 
 
 public class QuizQuestion 

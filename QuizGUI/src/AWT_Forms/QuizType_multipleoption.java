@@ -1,7 +1,7 @@
 package AWT_Forms;
 
-import Class.QuizQuestion;
-import Class.Quiz;
+import Quiz.QuizQuestion;
+import Quiz.Quiz;
 import java.awt.*;
 import java.awt.Font.*;
 import java.awt.event.*;
@@ -44,7 +44,7 @@ public class QuizType_multipleoption extends Frame
 
 
         //footer, displays the score and the Time left for the quiz
-        Label score_label = new Label("Score: " + Quiz.score + " Marks");
+        Label score_label = new Label("Score: " + question.question_marks + " Marks");
         Label time_left = new Label("Time left: " + Quiz.time_left);
         Button finish = new Button ("Submit Quiz");
 
@@ -104,17 +104,17 @@ public class QuizType_multipleoption extends Frame
                     checkBox1.setState(true);
                 }
                 
-                else if (question.answer_options[1] == 1)
+                if (question.answer_options[1] == 1)
                 {
                     checkBox2.setState(true);
                 }
                 
-                else if (question.answer_options[2] == 1)
+                if (question.answer_options[2] == 1)
                 {
                     checkBox3.setState(true);
                 }
                 
-                else if (question.answer_options[3] == 1)
+                if (question.answer_options[3] == 1)
                 {
                     checkBox4.setState(true);
                 }

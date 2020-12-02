@@ -1,7 +1,7 @@
 package AWT_Forms;
 
-import Class.QuizQuestion;
-import Class.Quiz;
+import Quiz.QuizQuestion;
+import Quiz.Quiz;
 import java.awt.*;
 import java.awt.Font.*;
 import java.awt.event.*;
@@ -38,7 +38,7 @@ public class QuizType_singleword extends Frame
 
 
         //footer, displays the score and the Time left for the quiz
-        Label score_label = new Label("Score: " + Quiz.score + " Marks");
+        Label score_label = new Label("Score: " + question.question_marks + " Marks");
         Label time_left = new Label("Time left: " + Quiz.time_left);
         Button finish = new Button ("Submit Quiz");
 
@@ -72,7 +72,7 @@ public class QuizType_singleword extends Frame
 
 
         //Options
-        TextField string_answer = new TextField("");
+        TextField string_answer = new TextField(" ");
         string_answer.setBounds(150, 230, 200, 30);
 
         Font font_answer = new Font("sans-serif", Font.PLAIN, 16);
@@ -115,7 +115,7 @@ public class QuizType_singleword extends Frame
                                 if(save_question == true)
                   {
                       //saves the answer in the QuizQuesiton
-                      question.answer_string = string_answer.getText();
+                      question.answer_string = string_answer.getText().trim();
                   }
                   
                       //previous question, decrease count

@@ -1,5 +1,5 @@
 
-package Class;
+package Quiz;
 
 import java.util.Objects;
 
