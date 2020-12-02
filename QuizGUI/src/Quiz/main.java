@@ -7,6 +7,8 @@ import java.util.Timer;
 public class main {
 
 
+    public static int time_left = 30;  
+    
     public static void main(String[] args) throws InterruptedException 
     {
 
@@ -44,9 +46,11 @@ public class main {
         
         //Displays the questions
         q.current_count = 0;
-        while(q.current_count < q.last_count)
+        while(q.current_count < q.last_count && time_left > 1)
         {
-
+            //add timer here and change the time_left for every second, also store the time left
+            //Quiz.time_left = time_left
+            
             
             if(question[q.current_count].getQuestion_type().equals("single-option"))
             {
