@@ -91,7 +91,6 @@ public class main {
                     Thread.sleep(100);
                 }
             }
-            q.current_count++;
         }
         
          //Evaluate the questions        
