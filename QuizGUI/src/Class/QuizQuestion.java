@@ -14,6 +14,7 @@ public class QuizQuestion
     
     //Holds question string and options
     public String question_string;
+    
     public String options[];
   
     //Holds the answers inputted by the user 

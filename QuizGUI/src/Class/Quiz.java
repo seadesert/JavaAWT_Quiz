@@ -12,7 +12,7 @@ public class Quiz
     //holds total time allocated to the quiz in seconds
     public static int total_time = 0;
     
-    //holds total time allocated to the quiz in seconds
+    //holds total time taken in quiz in seconds
     public static int time_taken = 0;
     
     //Time left is calcualted in each question form as time_left - time_taken( refer below )
